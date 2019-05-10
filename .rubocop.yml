@@ -1,0 +1,7 @@
+require: rubocop-performance
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 135
