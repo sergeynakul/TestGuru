@@ -9,7 +9,7 @@
 1.upto(5) do |x|
   Category.create(title: "Название_#{x}")
   User.create(name: "Имя_#{x}")
-  Test.create(title: "Название_#{x}", level: x, category_id: x)
+  Test.create(title: "Название_#{x}", level: x, category_id: x, author_id: x)
   Question.create(body: "Тело_#{x}", test_id: x)
   Answer.create(body: "Тело_#{x}", correct: true, question_id: x, user_id: x)
   PassedTest.create(user_id: x, test_id: x)
