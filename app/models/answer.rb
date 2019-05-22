@@ -1,4 +1,6 @@
 class Answer < ApplicationRecord
+  MAXIMUM_ANSWER = 4
+
   belongs_to :question
   belongs_to :user
 
@@ -8,6 +10,7 @@ class Answer < ApplicationRecord
   scope :correct_answers, -> { where correct: true }
 
   def answer_count
-    errors.add(:base, 'У одного вопроса может быть от 1 до 4 ответов') unless Answer.where(question_id: question_id).count.between?(0, 5)
+    maximum = question && question.answers.size >= MAXIMUM_ANSWER
+    errors.add(:base, 'У одного вопроса может быть от 1 до 4 ответов') if maximum
   end
 end
