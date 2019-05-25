@@ -1,0 +1,8 @@
+<%= form_with model: [@test, @question] do |form| %>
+  <p>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </p>
+  <%= form.hidden_field :test_id, value: @test.id %>
+  <p><%= form.submit %></p>
+<% end %>
