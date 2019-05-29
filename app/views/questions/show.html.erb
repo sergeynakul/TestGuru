@@ -1,6 +1,6 @@
 <%= @question.body %>
 
 <p>
-<%= link_to 'Back', test_path(@test) %> |
-<%= link_to 'Edit', edit_test_question_path(id: @question.id) %>
+<%= link_to 'Back', test_path(@question.test) %> |
+<%= link_to 'Edit', edit_question_path(id: @question.id) %>
 </p>
