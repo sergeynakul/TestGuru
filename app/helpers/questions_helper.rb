@@ -6,8 +6,4 @@ module QuestionsHelper
       "Edit #{@question.test.title} Question"
     end
   end
-
-  def hidden_field_test_id
-    @test.nil? ? @question.test.id : @test.id
-  end
 end
