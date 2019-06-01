@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_test
+  before_action :set_test, only: %i[new create]
   before_action :set_question, except: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_question_path(test_id: @test.id, id: @question.id)
+      redirect_to test_path(id: @test.id)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_question_path(test_id: @test.id, id: @question.id)
+      redirect_to question_path(id: @question.id)
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@test)
+    redirect_to test_path(@question.test)
   end
 
   private
@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_question_not_found
