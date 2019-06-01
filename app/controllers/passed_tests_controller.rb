@@ -1,5 +1,4 @@
 class PassedTestsController < ApplicationController
-
   before_action :set_passed_test, only: %i[show result update]
 
   def show

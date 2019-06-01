@@ -1,5 +1,4 @@
 class TestsController < ApplicationController
-
   before_action :set_test, except: :index
   before_action :set_user, only: :start
 

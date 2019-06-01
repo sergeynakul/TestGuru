@@ -1,3 +1,10 @@
-<p><%= @passed_test.test.title %> completed</p>
-<p>Quantity right answes - <%= @passed_test.correct_questions %></p>
-<p><%= link_to 'Home page', root_path %></p>
+<h1><%= @passed_test.test.title %> completed</h1>
+<h3>Quantity right answes - <%= @passed_test.correct_questions %></h3>
+
+<% if percentage_success >= 85 %>
+  <p style="color: green">You have successfully passed the test, the percentage of success - <%= percentage_success %>%</p>
+<% else %>
+  <p style="color: red">Test failed, the percentage of success - <%= percentage_success %>%</p>
+<% end %>
+
+<p><%= link_to 'List of all tests', root_path %></p>
