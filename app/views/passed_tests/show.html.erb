@@ -2,7 +2,7 @@
 
 <b><%= @passed_test.current_question.body %></b>
 
-<p>Question # <%= @passed_test.current_question.id %> of a <%= @passed_test.test.questions.count %></p>
+<p>Question # <%= @passed_test.current_question_number %> of a <%= @passed_test.test.questions.count %></p>
 
 <%= form_with url: passed_test_path(@passed_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @passed_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
