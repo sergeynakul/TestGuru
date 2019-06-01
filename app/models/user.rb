@@ -7,4 +7,8 @@ class User < ApplicationRecord
   def passed_tests_by(level)
     Test.joins(:passed_tests).where(passed_tests: { user_id: id }, level: level).pluck(:title)
   end
+
+  def passed_test(test)
+    passed_tests.order(id: :desc).find_by(test_id: test.id)
+  end
 end
