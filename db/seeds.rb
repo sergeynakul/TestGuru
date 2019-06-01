@@ -6,18 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-1.upto(5) do |x|
-  Category.create(title: "Название_#{x}")
-  User.create(name: "Имя_#{x}", email: "почта_#{x}@gmail.com")
-  Test.create(title: "Название_#{x}", level: x, category_id: x)
-  Question.create(body: "Тело_#{x}", test_id: x)
-  Answer.create(body: "Тело_#{x}", correct: true, question_id: x, user_id: x)
-  PassedTest.create(user_id: x, test_id: x)
-end
 
-p "Создано #{Category.count} категорий"
-p "Создано #{User.count} пользователей"
-p "Создано #{Test.count} тестов"
-p "Создано #{Question.count} вопросов"
-p "Создано #{Answer.count} ответов"
-p "Создано #{PassedTest.count} пройденных тестов"
+Category.create(title: "Ruby")
+User.create(name: "Sergey", email: "nakul.sv@gmail.com")
+Test.create(title: "Ruby basics", category_id: 1)
+Question.create(body: "Who created the ruby language?", test_id: 1)
+Answer.create(body: "Matz", correct: true, question_id: 1)
+Answer.create(body: "John Doe", correct: false, question_id: 1)
+Answer.create(body: "Linus Torvalds", correct: false, question_id: 1)
+Answer.create(body: "Donald Duck", correct: false, question_id: 1)
+Question.create(body: "What method return a new array created by sorting self?", test_id: 1)
+Answer.create(body: "Inspect", correct: false, question_id: 2)
+Answer.create(body: "Sort", correct: true, question_id: 2)
+Answer.create(body: "Map", correct: false, question_id: 2)
+Answer.create(body: "Clone", correct: false, question_id: 2)
