@@ -9,10 +9,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.name %></b> Guru |
-                          <%= link_to 'Exit', session_path(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    <% end %>
+    <%= render 'layouts/navigation' %> 
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
