@@ -2,6 +2,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   has_secure_password
 
+  before_save :before_save_formatting_email
+
   has_many :passed_tests
   has_many :tests, through: :passed_tests
 
@@ -14,5 +16,11 @@ class User < ApplicationRecord
 
   def passed_test(test)
     passed_tests.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  private
+
+  def before_save_formatting_email
+    self.email = email.downcase
   end
 end
