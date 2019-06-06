@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Category.create(title: 'Ruby')
-User.create(name: 'Sergey', email: 'nakul.sv@gmail.com')
 Test.create(title: 'Ruby basics', category_id: 1)
 Question.create(body: 'Who created the ruby language?', test_id: 1)
 Answer.create(body: 'Matz', correct: true, question_id: 1)

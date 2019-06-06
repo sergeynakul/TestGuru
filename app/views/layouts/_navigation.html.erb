@@ -1,0 +1,8 @@
+<% if logged_in? %>
+  <p><%= link_to 'TestGuru', root_path %> |
+  Welcome, <b><%= current_user.name %></b> Guru |
+  <%= link_to 'Exit', session_path(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% else %>
+  <p><%= link_to 'TestGuru', root_path %> | <%= link_to 'Signup', signup_path %> | <%= link_to 'Login', login_path %></p>
+<% end %>
+<hr>
