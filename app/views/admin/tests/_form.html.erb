@@ -16,6 +16,10 @@
     <%= form.select :category_id, Category.ids, include_blank: 'Please choose', id: :test_category_id %>
   </p>
 
+  <p>
+    <%= form.hidden_field :admin_id, value: current_user.id %>
+  </p>
+
   <p><%= form.submit %></p>
 <% end %>
 
