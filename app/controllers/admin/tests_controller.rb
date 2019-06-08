@@ -1,5 +1,4 @@
 class Admin::TestsController < Admin::BaseController
-
   before_action :set_test, except: %i[index new create]
 
   def index
@@ -24,8 +23,7 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @test.update(test_params)

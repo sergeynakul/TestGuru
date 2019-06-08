@@ -1,5 +1,4 @@
 class Admin::QuestionsController < Admin::BaseController
-
   before_action :set_test, only: %i[new create]
   before_action :set_question, except: %i[new create]
 
