@@ -1,4 +1,4 @@
-<h1><%= @passed_test.test.title %> completed</h1>
+<h1><%= t('.header', title: @passed_test.test.title) %></h1>
 <h3>Quantity right answes - <%= @passed_test.correct_questions %></h3>
 
 <%= result_message %>

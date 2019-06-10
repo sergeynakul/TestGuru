@@ -1,2 +1,93 @@
 ru:
   hello: "привет мир"
+
+  layouts:
+    footer:
+      current_year: "Текущий год - %{year}"
+      author: "Автор - Сергей Накул"
+      description: "Проект для создания и прохождения тестов"
+      thinknetica_link: "Учебный проект в онлайн-школе Thinknetica"
+    navigation:
+      welcome: "Приветсвую, %{name} Гуру"
+      exit: "Выход"
+      signup: "Регистрация"
+      login: "Вход"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Кол-во вопросов"
+      actions: "Действия"
+    test:
+      start: "Старт"
+
+  passed_tests:
+    result:
+      header: "Тест %{title} завершен!"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы только что завершили Гуру тест"
+
+  admin:
+    tests:
+      create:
+        success: "Тест был успешно создан"
+      index:
+        header: "Все тесты"
+        new_test: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        questions: "Кол-во вопросов"
+        actions: "Действия"
+      test:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
+      new:
+        header: "Новый тест"
+      form:
+        back: "Назад"
+      show:
+        new: "Новый вопрос"
+        list: "Список вопросов:"
+        body: "Тело вопроса"
+        actions: "Действия"
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
+        back: "Назад"
+      edit:
+        header: "Редактирование теста"
+    navigation:
+      title: "TestGuru админ панель"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    select:
+      prompt: "Выберите:"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  users:
+    sessions:
+      create:
+        welcome: "Приветсвую, %{name}!"
