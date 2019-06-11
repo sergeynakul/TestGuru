@@ -1,23 +1,89 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+
+  layouts:
+    footer:
+      current_year: "Current year - %{year}"
+      author: "Author - Sergey Nakul"
+      description: "Project for creating and running tests"
+      thinknetica_link: "Study project at Thinknetica online school"
+    navigation:
+      welcome: "Welcome, %{name} Guru"
+      exit: "Exit"
+      signup: "Signup"
+      login: "Login"
+
+  tests:
+    index:
+      header: "Tricky tests"
+      title: "Title"
+      level: "Level"
+      questions: "Quantity questions"
+      actions: "Actions"
+    test:
+      start: "Start"
+
+  passed_tests:
+    result:
+      header: "Test %{title} complited!"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just finished Guru test"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created"
+      index:
+        header: "All tests"
+        new_test: "New test"
+        title: "Title"
+        level: "Level"
+        questions: "Quantity questions"
+        actions: "Actions"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+      new:
+        header: "New test"
+      form:
+        back: "Back"
+      show:
+        new: "New question"
+        list: "A list of questions:"
+        body: "Body"
+        actions: "Actions"
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+        back: "Back"
+      edit:
+        header: "Edit test"
+    navigation:
+      title: "TestGuru Admin Panel"
+
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  users:
+    sessions:
+      create:
+        welcome: "Welcome, %{name}!"
