@@ -1,10 +1,9 @@
 <nav class="navbar navbar-light bg-light mb-3">
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
-
+  <%= link_to 'Admin panel', admin_tests_path if current_user.is_a?(Admin) %>
   <span class="navbar-text">
     <% if user_signed_in? %>
       <%= t('.welcome', name: current_user.name) %> |
-      <%= link_to 'Admin panel', admin_tests_path if current_user.is_a?(Admin) %> |
       <%= link_to t('.exit'), destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to t('.signup'), new_user_registration_path %> |
