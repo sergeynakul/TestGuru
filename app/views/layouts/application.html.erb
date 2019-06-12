@@ -14,7 +14,7 @@
   <body>
     <%= render 'layouts/navigation' %>
     <div class="container">
-      <%= render 'shared/flash' %>
+      <%= render partial: 'shared/flash', flash: flash %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
