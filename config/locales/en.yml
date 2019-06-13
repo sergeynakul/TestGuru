@@ -26,6 +26,9 @@ en:
   passed_tests:
     result:
       header: "Test %{title} complited!"
+    gist:
+      success: "Gist was successfully created"
+      failure: "An error occurred while saving Gist"
 
   shared:
     errors:
