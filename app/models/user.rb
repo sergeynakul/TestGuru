@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :passed_tests
   has_many :tests, through: :passed_tests
+  has_many :gists
 
   validates :name, :email, presence: true
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }

@@ -27,7 +27,7 @@ en:
     result:
       header: "Test %{title} complited!"
     gist:
-      success: "Gist was successfully created"
+      success: "Gist was successfully created! Link is %{link}"
       failure: "An error occurred while saving Gist"
 
   shared:
@@ -72,6 +72,14 @@ en:
         back: "Back"
       edit:
         header: "Edit test"
+      gists:
+        header: "All gists"
+        question: "Question"
+        url: "URL"
+        user: "User"
+    gists:
+      gist:
+        link: "Show Gist"
     navigation:
       title: "TestGuru Admin Panel"
 
@@ -90,3 +98,7 @@ en:
     sessions:
       create:
         welcome: "Welcome, %{name}!"
+
+  services:
+    gist_question_service:
+      description: "A question about %{title} from TestGuru"

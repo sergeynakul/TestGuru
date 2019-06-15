@@ -1,10 +1,8 @@
 class GistQuestionService
-  ACCESS_TOKEN = '0331d92558efac0ed07953436c6254398890bfd1'.freeze
-
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: ACCESS_TOKEN)
+    @client = client || Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
   end
 
   def call
@@ -15,7 +13,7 @@ class GistQuestionService
 
   def gist_params
     {
-      "description": "A question about #{@test.title} from TestGuru",
+      "description": I18n.t('services.gist_question_service.description', title: @test.title),
       "public": true,
       "files": {
         "test-guru-question.txt": {
