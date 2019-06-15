@@ -1,5 +1,5 @@
 class GistQuestionService
-  ACCESS_TOKEN = '48b7cde9d1373039ab873974c74cf0c77f5e858f'.freeze
+  ACCESS_TOKEN = '0331d92558efac0ed07953436c6254398890bfd1'.freeze
 
   def initialize(question, client: nil)
     @question = question
