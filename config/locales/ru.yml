@@ -26,6 +26,9 @@ ru:
   passed_tests:
     result:
       header: "Тест %{title} завершен!"
+    gist:
+      success: "Gist успешно создан! Ссылка - %{link}"
+      failure: "Во время сохранениея Gist произошла ошибка"
 
   shared:
     errors:
@@ -71,6 +74,14 @@ ru:
         back: "Назад"
       edit:
         header: "Редактирование теста"
+      gists:
+        header: "Все gists"
+        question: "Вопрос"
+        url: "URL"
+        user: "Пользователь"
+    gists:
+      gist:
+        link: "Показать Gist"
     navigation:
       title: "TestGuru админ панель"
 
@@ -91,3 +102,7 @@ ru:
     sessions:
       create:
         welcome: "Приветсвую, %{name}!"
+
+  services:
+    gist_question_service:
+      description: "Вопрос о %{title} из TestGuru"
