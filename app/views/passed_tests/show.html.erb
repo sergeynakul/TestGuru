@@ -1,16 +1,26 @@
 <h1>Pass the <%= @passed_test.test.title %> test</h1>
 
-<p></p><b><%= @passed_test.current_question.body %></b></p>
+<div id="progressBar">
+  <div id="myBar">
+    <b><%= @passed_test.current_question_number %> / <%= @passed_test.test.questions.count %></b>
+  </div>
+</div>
 
-<p>Question # <%= @passed_test.current_question_number %> of a <%= @passed_test.test.questions.count %></p>
-
-<%= form_with url: passed_test_path(@passed_test), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @passed_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
-    </p>
+<%= content_tag :div, id: 'current-test',
+                      data: { current_question: @passed_test.current_question_number,
+                              questions_count: @passed_test.test.questions.count
+                            } do %>
+  
+  <p></p><b><%= @passed_test.current_question.body %></b></p>
+  
+  <%= form_with url: passed_test_path(@passed_test), local: true, method: :put do |form| %>
+    <%= form.collection_check_boxes :answer_ids, @passed_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
+      <p>
+        <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+        <%= b.label %>
+      </p>
+    <% end %>
+    <p><%= link_to 'Gist question', gist_passed_test_path(@passed_test), method: :post  %></p>
+    <p><%= form.submit 'Next' %></p>
   <% end %>
-  <p><%= link_to 'Gist question', gist_passed_test_path(@passed_test), method: :post  %></p>
-  <p><%= form.submit 'Next' %></p>
 <% end %>

@@ -77,6 +77,8 @@ en:
         question: "Question"
         url: "URL"
         user: "User"
+      form_inline:
+        submit: 'OK'
     gists:
       gist:
         link: "Show Gist"

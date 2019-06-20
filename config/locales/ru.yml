@@ -79,6 +79,8 @@ ru:
         question: "Вопрос"
         url: "URL"
         user: "Пользователь"
+      form_inline:
+        submit: 'OK'
     gists:
       gist:
         link: "Показать Gist"
