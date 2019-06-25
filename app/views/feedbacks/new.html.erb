@@ -1,0 +1,14 @@
+<h1>Feedbacks form</h1>
+
+<%= form_with model: @feedback, local: true do |form| %>
+  <%= render 'shared/errors', resource: @feedback %>
+
+  <p>
+    <%= form.label :message %>
+    <%= form.text_field :message, id: :feedback_message %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
+
+<p><%= link_to 'Back', root_path %></p>
