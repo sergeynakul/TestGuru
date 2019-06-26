@@ -15,6 +15,14 @@ class PassedTest < ApplicationRecord
     save!
   end
 
+  def successfully?
+    self.correct_questions == self.test.questions.count
+  end
+
+  def check_result
+    BadgeUserService.new(self).call if successfully?
+  end
+
   private
 
   def before_validation_set_first_question

@@ -1,0 +1,25 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-12">
+    <h2>All badges</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-primary">
+          <th>Title</th>
+          <th>Image</th>
+        </tr>  
+      <%= render @badges %>
+    </table>
+    
+    <h2>Your badges</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-primary">
+          <th>Title</th>
+          <th>Image</th>
+        </tr>  
+      <%= render @user_badges %>
+    </table>
+    
+    <p><%= link_to 'Back', tests_path %></p>
+  </div>  
+</div>

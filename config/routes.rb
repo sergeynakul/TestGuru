@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :feedbacks, only: %i[new create]
+  resources :badges, only: %i[index]
 
   resources :passed_tests, only: %i[show update] do
     member do
