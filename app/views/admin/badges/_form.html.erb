@@ -1,0 +1,33 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-12">
+    <%= form_with model: [:admin, @badge], local: true do |form| %>
+      <%= render 'shared/errors', resource: @badge%>
+
+      <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+      </p>
+
+      <p>
+        <%= form.label :img_url %><br>
+        <%= form.text_field :img_url %>
+      </p>
+      
+      <p>
+        <%= form.label :rule_name %><br>
+        <%= form.select :rule_name, ['categoty', 'level', 'attempt'], prompt: 'Please select' %>
+      </p>
+      
+      <p>
+        <%= form.label :rule_value %><br>
+        <small>If rule value is Category choose <%= Category.all.pluck(:title) %></small><br>
+        <small>If rule value is Level choose <%= Test.all.pluck(:level) %></small><br>
+        <%= form.text_field :rule_value %>
+      </p>
+
+      <p><%= form.submit %></p>
+    <% end %>  
+
+    <%= link_to 'Back', admin_badges_path %>
+  </div>
+</div>
