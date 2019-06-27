@@ -18,28 +18,32 @@ class BadgeUserService
   end
 
   def first_try_successfull
-    if BadgeRule.where(rule: 'first_try_complete').first
-      give_badge(BadgeRule.where(rule: 'first_try_complete').first.badge) if @user.tests.where(id: @test.id).count == 1
-    end
+    badge_rule = BadgeRule.find_by(rule: 'first_try_complete')
+    return unless badge_rule
+    return if @user.tests.where(id: @test.id).count > 1
+
+    give_badge(badge_rule.badge)
   end
 
   def level_complete
-    if BadgeRule.where(rule: 'level_complete').first
-      level = BadgeRule.where(rule: 'level_complete').first.value
-      tests_ids = Test.levels_test(level).ids
-      complete_tests_ids = @user.tests.levels_test(level).distinct.ids
+    level = @test.level
+    badge_rule = BadgeRule.find_by(rule: 'level_complete', value: level)
+    return unless badge_rule
 
-      give_badge(BadgeRule.where(rule: 'level_complete').first.badge) if complete_tests_ids == tests_ids
-    end
+    tests_ids = Test.levels_test(level).ids
+    complete_tests_ids = @user.tests.levels_test(level).distinct.ids
+
+    give_badge(badge_rule.badge) if complete_tests_ids == tests_ids
   end
 
   def category_complete
-    if BadgeRule.where(rule: 'category_complete').first
-      category = BadgeRule.where(rule: 'category_complete').first.value
-      tests_ids = Test.categories_test(category).ids
-      complete_tests_ids = @user.tests.categories_test(category).distinct.ids
+    category = @test.category.title
+    badge_rule = BadgeRule.find_by(rule: 'category_complete', value: category)
+    return unless badge_rule
 
-      give_badge(BadgeRule.where(rule: 'category_complete').first.badge) if complete_tests_ids == tests_ids
-    end
+    tests_ids = Test.categories_test(category).ids
+    complete_tests_ids = @user.tests.categories_test(category).distinct.ids
+
+    give_badge(badge_rule.badge) if complete_tests_ids == tests_ids
   end
 end
