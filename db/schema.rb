@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_626_110_502) do
+ActiveRecord::Schema.define(version: 20_190_627_033_945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -23,13 +23,20 @@ ActiveRecord::Schema.define(version: 20_190_626_110_502) do
     t.index ['question_id'], name: 'index_answers_on_question_id'
   end
 
+  create_table 'badge_rules', force: :cascade do |t|
+    t.string 'rule'
+    t.string 'value'
+    t.bigint 'badge_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['badge_id'], name: 'index_badge_rules_on_badge_id'
+  end
+
   create_table 'badges', force: :cascade do |t|
     t.string 'title'
     t.string 'img_url'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.string 'rule_value'
-    t.string 'rule_name'
   end
 
   create_table 'categories', id: :serial, force: :cascade do |t|
@@ -125,6 +132,7 @@ ActiveRecord::Schema.define(version: 20_190_626_110_502) do
   end
 
   add_foreign_key 'answers', 'questions'
+  add_foreign_key 'badge_rules', 'badges'
   add_foreign_key 'feedbacks', 'users'
   add_foreign_key 'gists', 'questions'
   add_foreign_key 'gists', 'users'

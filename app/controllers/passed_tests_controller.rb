@@ -7,7 +7,7 @@ class PassedTestsController < ApplicationController
   def result; end
 
   def update
-    @passed_test.accept!(params[:answer_ids])
+    @passed_test.accept!(params[:answer_ids] || [])
 
     if @passed_test.completed?
       @passed_test.check_result
