@@ -9,7 +9,7 @@ class PassedTestsController < ApplicationController
   def update
     @passed_test.accept!(params[:answer_ids] || [])
 
-    if @passed_test.completed?
+    if @passed_test.completed? || @passed_test.time_is_up?
       @passed_test.check_result
       TestsMailer.completed_test(@passed_test).deliver_now
       redirect_to result_passed_test_path(@passed_test)
