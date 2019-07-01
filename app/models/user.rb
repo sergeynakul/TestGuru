@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :tests, through: :passed_tests
   has_many :gists
   has_many :feedbacks
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :name, :email, presence: true
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }

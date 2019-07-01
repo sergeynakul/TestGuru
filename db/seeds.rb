@@ -22,3 +22,11 @@ Answer.create(body: 'Map', correct: false, question_id: 2)
 Answer.create(body: 'Clone', correct: false, question_id: 2)
 User.create(name: 'Sergey', email: 'sergey@mail.com', confirmed_at: Time.zone.now, password: '123456',
             password_confirmation: '123456')
+
+Badge.create(title: 'Complete successfully category Ruby', img_url: 'https://img.icons8.com/dusk/64/000000/prize.png')
+Badge.create(title: 'Complete for the first try', img_url: 'https://img.icons8.com/bubbles/64/000000/prize.png')
+Badge.create(title: 'Complete the 0 level tests', img_url: 'https://img.icons8.com/color/64/000000/prize.png')
+
+BadgeRule.create(rule: 'category_complete', value: 'Ruby', badge_id: 1)
+BadgeRule.create(rule: 'first_try_complete', value: '', badge_id: 2)
+BadgeRule.create(rule: 'level_complete', value: '0', badge_id: 3)

@@ -7,7 +7,7 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = current_user.feedbacks.new(feedback_params)
-    
+
     if @feedback.save
       FeedbacksMailer.send_message(@feedback).deliver_now
       redirect_to root_path, notice: 'Feedback sent'
@@ -15,9 +15,9 @@ class FeedbacksController < ApplicationController
       render :new, alert: 'Feedback did not sent.'
     end
   end
-  
+
   private
-  
+
   def feedback_params
     params.require(:feedback).permit(:message)
   end
