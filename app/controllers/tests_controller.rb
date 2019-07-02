@@ -7,7 +7,9 @@ class TestsController < ApplicationController
   end
 
   def start
-    current_user.tests.push(@test)
+    passage = PassedTest.new(user: current_user, test: @test)
+    passage.set_timer!
+
     redirect_to current_user.passed_test(@test)
   end
 
